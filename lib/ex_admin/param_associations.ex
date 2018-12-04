@@ -31,7 +31,9 @@ defmodule ExAdmin.ParamsAssociations do
 
         String.ends_with?(key_as_string, "_ids") ->
           new_key =
-            String.replace_suffix(key_as_string, "_ids", "s")
+            key_as_string
+            |> String.replace_suffix("_ids", "s")
+            |> Inflex.pluralize()
             |> String.to_atom()
 
           value = build_for_checkboxes(params[key])
