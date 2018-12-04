@@ -32,7 +32,7 @@ defmodule ExAdmin.ParamsAssociations do
         String.ends_with?(key_as_string, "_ids") ->
           new_key =
             key_as_string
-            |> String.replace_suffix("_ids", "s")
+            |> String.replace_suffix("_ids", "")
             |> Inflex.pluralize()
             |> String.to_atom()
 
